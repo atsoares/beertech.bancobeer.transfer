@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static java.time.ZonedDateTime.now;
-
 @Service
 public class AccountServiceImpl implements AccountService {
 

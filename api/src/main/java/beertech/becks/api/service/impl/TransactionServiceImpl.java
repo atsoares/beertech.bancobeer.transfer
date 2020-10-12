@@ -1,11 +1,9 @@
 package beertech.becks.api.service.impl;
 
 import beertech.becks.api.entities.Account;
-import beertech.becks.api.entities.Balance;
 import beertech.becks.api.entities.Transaction;
 import beertech.becks.api.repositories.AccountRepository;
 import beertech.becks.api.repositories.TransactionRepository;
-import beertech.becks.api.service.AccountService;
 import beertech.becks.api.service.TransactionService;
 import beertech.becks.api.tos.TransactionRequestTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
-import static beertech.becks.api.model.TypeOperation.*;
+import static beertech.becks.api.model.TypeOperation.DEPOSITO;
+import static beertech.becks.api.model.TypeOperation.SAQUE;
 import static java.time.ZonedDateTime.now;
 
 @Service
