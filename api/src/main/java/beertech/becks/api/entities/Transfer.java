@@ -14,15 +14,11 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Transaction implements Serializable {
+public class Transfer implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "operation")
-	private TypeOperation typeOperation;
 
 	@Column(name = "value_transaction")
 	private BigDecimal valueTransaction;
@@ -30,7 +26,10 @@ public class Transaction implements Serializable {
 	@Column(name = "data_transaction")
 	private ZonedDateTime dateTime;
 
-	@Column(name = "hash_account")
-	private String hashAccount;
+	@Column(name = "hash_account_origin")
+	private String hashAccountOrigin;
+
+	@Column(name = "hash_account_destination")
+	private String hashAccountDestination;
 
 }

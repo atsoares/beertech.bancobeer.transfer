@@ -2,6 +2,7 @@ package beertech.becks.api.service;
 
 import beertech.becks.api.entities.Transaction;
 import beertech.becks.api.model.TypeOperation;
+import beertech.becks.api.repositories.AccountRepository;
 import beertech.becks.api.repositories.TransactionRepository;
 import beertech.becks.api.service.impl.TransactionServiceImpl;
 import beertech.becks.api.tos.TransactionRequestTO;
@@ -17,6 +18,8 @@ public class TransactionServiceTest {
 
     private TransactionRepository transactionRepository;
 
+    private AccountRepository accountRepository;
+
     private TransactionService service;
 
     private TransactionRequestTO transactionTO;
@@ -30,8 +33,10 @@ public class TransactionServiceTest {
 
         transactionRepository = mock(TransactionRepository.class);
 
+        accountRepository = mock(AccountRepository.class);
+
         //GIVEN
-        service = new TransactionServiceImpl(transactionRepository);
+        service = new TransactionServiceImpl(transactionRepository, accountRepository);
         transactionValue = new BigDecimal(100);
 
         transactionTO = new TransactionRequestTO();
@@ -58,7 +63,9 @@ public class TransactionServiceTest {
         //GIVEN
         transactionRepository = mock(TransactionRepository.class);
 
-        service = new TransactionServiceImpl(transactionRepository);
+        accountRepository = mock(AccountRepository.class);
+
+        service = new TransactionServiceImpl(transactionRepository, accountRepository);
         transactionValue = new BigDecimal(500);
 
         transactionTO = new TransactionRequestTO();

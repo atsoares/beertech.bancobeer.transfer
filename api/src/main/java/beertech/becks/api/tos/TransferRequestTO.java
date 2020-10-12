@@ -9,20 +9,19 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TransactionRequestTO {
+public class TransferRequestTO {
 	/**
-	 * The hash account
+	 * The account origin
 	 */
-	private String hashAccount;
+	private String hashOrigin;
 
 	/**
-	 * The operation type (S || D || T)
+	 * The account destination
 	 */
-	private String operation;
+	private String hashDestination;
 
 	/**
-	 * The operation value
+	 * The amount to be transferred
 	 */
 	private BigDecimal value;
-
 }

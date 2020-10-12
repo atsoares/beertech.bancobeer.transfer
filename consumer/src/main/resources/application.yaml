@@ -8,3 +8,5 @@ spring:
 api:
   transactions:
     endpoint: http://localhost:8080/transactions
+  transfer:
+    endpoint: http://localhost:8080/transfer

@@ -79,28 +79,4 @@ public class TransactionControllerTest {
         transactionRequest.getValue(), transactionResponse.getValueTransaction());
   }
 
-  @Test
-  void getBalance() throws Exception {
-    ObjectMapper mapper = new ObjectMapper();
-
-    Balance balance = new Balance();
-    balance.setBalance(BigDecimal.valueOf(123.5));
-    when(transactionService.getBalance()).thenReturn(balance);
-
-    MvcResult result =
-        this.mockMvc
-            .perform(
-                MockMvcRequestBuilders.get("/transactions").contentType(APPLICATION_JSON_VALUE))
-            .andDo(print())
-            .andExpect(status().isOk())
-            .andReturn();
-
-    verify(transactionService, times(1)).getBalance();
-
-    String contentAsString = result.getResponse().getContentAsString();
-
-    Balance balanceResponse = mapper.readValue(contentAsString, new TypeReference<Balance>() {});
-
-    Assertions.assertEquals(balance.getBalance(), balanceResponse.getBalance());
-  }
 }

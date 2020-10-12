@@ -43,15 +43,4 @@ public class TransactionController {
     return new ResponseEntity<>(createdTransaction, HttpStatus.CREATED);
   }
 
-  @ApiResponses(
-      value = {
-        @ApiResponse(code = 200, message = STATUS_200_GET_OK),
-        @ApiResponse(code = 404, message = STATUS_404_NOTFOUND),
-        @ApiResponse(code = 500, message = STATUS_500_INTERNAL_SERVER_ERROR)
-      })
-  @GetMapping
-  public ResponseEntity<Balance> getBalance() {
-    Balance balance = transactionService.getBalance();
-    return new ResponseEntity<>(balance, HttpStatus.OK);
-  }
 }
