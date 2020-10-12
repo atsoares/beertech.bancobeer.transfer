@@ -25,7 +25,6 @@ public class TransferController {
 
   @ApiResponses(
       value = {
-        @ApiResponse(code = 201, message = STATUS_201_CREATED),
         @ApiResponse(code = 200, message = STATUS_200_GET_OK),
         @ApiResponse(code = 400, message = STATUS_400_BAD_REQUEST),
         @ApiResponse(code = 404, message = STATUS_404_NOTFOUND),
@@ -35,7 +34,7 @@ public class TransferController {
   public ResponseEntity<Transfer> doTransfer(@RequestBody TransferRequestTO transferRequestTO) {
     Transfer doneTransfer = transferService.doTransfer(transferRequestTO);
 
-    return new ResponseEntity<>(doneTransfer, HttpStatus.CREATED);
+    return new ResponseEntity<>(doneTransfer, HttpStatus.OK);
   }
 
 }
