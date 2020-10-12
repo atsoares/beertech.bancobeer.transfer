@@ -22,4 +22,14 @@ public class Message {
 	 * The operation value
 	 */
 	private BigDecimal value;
+
+	/**
+	 * The hash account origin
+	 */
+	private String hashOrigin;
+
+	/**
+	 * The hash account destination
+	 */
+	private String hashDestination;
 }
