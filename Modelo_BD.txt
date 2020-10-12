@@ -3,3 +3,15 @@ Transação
  - dataHora
  - operacao
  - valor
+ - hash_conta
+
+Conta
+ - id
+ - hash
+ - saldo
+
+Transferencia
+ - id
+ - hash_origem
+ - hash_destino
+ - valor
