@@ -1,0 +1,27 @@
+
+create table ACCOUNT (
+    ID numeric not null PRIMARY KEY,
+    HASH varchar(60) UNIQUE,
+    BALANCE numeric null
+);
+
+alter table TRANSACTION (
+    add column HASH_ACCOUNT varchar(60),
+    add CONSTRAINT FK_ACCOUNT
+        FOREIGN KEY (HASH_ACCOUNT)
+        REFERENCES ACCOUNT(HASH);
+);
+
+create table TRANSFER (
+    ID numeric not null PRIMARY KEY,
+    VALUE_TRANSACTION numeric null,
+    DATA_TRANSACTION TIMESTAMP not null,
+    HASH_ACCOUNT_ORIGIN varchar(60) UNIQUE,
+    HASH_ACCOUNT_DESTINATION varchar(60) UNIQUE,
+    add CONSTRAINT FK_ACCOUNT_ORIGIN
+        FOREIGN KEY (HASH_ACCOUNT_ORIGIN)
+        REFERENCES ACCOUNT(HASH);
+    add CONSTRAINT FK_ACCOUNT_DESTINATION
+        FOREIGN KEY (HASH_ACCOUNT_DESTINATION)
+        REFERENCES ACCOUNT(HASH);
+);
